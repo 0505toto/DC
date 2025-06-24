@@ -1,0 +1,380 @@
+/* 基本設定とフォント */
+:root {
+    --primary-color: #005A9C; /* 信頼感のあるブルー */
+    --secondary-color: #00A1E4; /* 明るいブルー */
+    --accent-color: #FFC425; /* アクセントのゴールド */
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --header-height: 70px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding-top: var(--header-height);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ヘッダーとナビゲーション */
+header {
+    background-color: var(--card-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header nav li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav li a:hover {
+    color: var(--primary-color);
+}
+
+header nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+header nav li a:hover::after {
+    width: calc(100% - 30px);
+}
+
+/* ヒーローセクション */
+#hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    border-bottom-left-radius: 50% 20px;
+    border-bottom-right-radius: 50% 20px;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    margin: 0 0 10px;
+    letter-spacing: 1px;
+}
+.hero-title span { font-size: 1.8rem; }
+.hero-subtitle { font-size: 1.2rem; margin-top: 0; }
+
+/* セクション共通 */
+section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+.section-description {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+
+/* カードスタイル */
+.card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    margin-bottom: 30px;
+}
+
+/* 外部リンク */
+.external-links {
+    display: flex;
+    gap: 30px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+.link-card {
+    flex: 1;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+.link-card h3 {
+    margin: 0 0 5px;
+    color: var(--primary-color);
+}
+.link-card p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* メリットリスト */
+.merit-list {
+    list-style: none;
+    padding: 0;
+}
+.merit-list li {
+    margin-bottom: 15px;
+    padding-left: 35px;
+    position: relative;
+}
+.merit-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+.merit-list li span {
+    font-weight: 700;
+    display: block;
+    color: var(--primary-color);
+}
+
+/* ステップ */
+.step-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.step-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    text-align: center;
+    position: relative;
+}
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-color), #ffd700);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: 3px solid white;
+}
+
+/* ボタン */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 90, 156, 0.3);
+    margin-top: 15px;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 90, 156, 0.4);
+}
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.download-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 15.586l4.293-4.293a1 1 0 0 1 1.414 1.414l-6 6a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 1.414-1.414L12 15.586zM12 4a1 1 0 0 1 1 1v9.586l-2-2V5a1 1 0 0 1 1-1z'/%3E%3Cpath d='M5 20h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z'/%3E%3C/svg%3E");
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* 詳細リスト */
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+.detail-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* 重要情報 */
+.important-info {
+    margin-top: 40px;
+}
+.alert {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffeeba;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.alert strong {
+    color: #856404;
+}
+
+/* 相談窓口 */
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* FAQ */
+.faq-item {
+    margin-bottom: 15px;
+}
+.faq-item summary {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+.faq-item summary:hover {
+    background-color: #e9f4ff;
+}
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.8rem;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+.faq-item details[open] summary {
+    background-color: #e9f4ff;
+}
+.faq-item details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+.faq-answer {
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+/* フッター */
+footer {
+    background-color: #343a40;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+/* アニメーション */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-animation.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ステップカードのアニメーション遅延 */
+.step-card:nth-child(2) { transition-delay: 0.1s; }
+.step-card:nth-child(3) { transition-delay: 0.2s; }
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    header nav { display: none; } /* 簡単のため非表示に。ハンバーガーメニューにする場合は要JS */
+    .hero-title { font-size: 2.2rem; }
+    .hero-title span { font-size: 1.5rem; }
+    .external-links { flex-direction: column; }
+}
